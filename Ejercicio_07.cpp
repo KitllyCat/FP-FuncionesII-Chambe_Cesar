@@ -1,6 +1,3 @@
-/*Juego de Dados por Turnos: Desarrolla un programa que simule un juego entre dos jugadores que lanzan un dado por turnos. Cada dado
-genera un número aleatorio entre 1 y 6. El jugador que obtenga el número mayor gana la ronda. El primero en ganar 3 rondas será el
-ganador del juego. Muestra el resultado de cada ronda y el marcador acumulado. Usa funciones y números aleatorios (rand de cstdlib).*/
 #include <iostream>
 #include <windows.h>
 #include <ctime>
@@ -98,35 +95,45 @@ void dado6() {
 }
 
 void dadoAnimacion() {
-    cout<<"Tu dado que salio es de..."<<endl;
+    cout<<endl;
+	cout<<"Tu dado que salio es de..."<<endl<<endl;
 	dado6(); Sleep(100); system("cls");
-	cout<<"Tu dado que salio es de..."<<endl;
+	cout<<"Tu dado que salio es de..."<<endl<<endl;
 	dado3(); Sleep(100); system("cls");
-	cout<<"Tu dado que salio es de..."<<endl;
+	cout<<"Tu dado que salio es de..."<<endl<<endl;
 	dado5(); Sleep(150); system("cls");
-	cout<<"Tu dado que salio es de..."<<endl;
+	cout<<"Tu dado que salio es de..."<<endl<<endl;
 	dado2(); Sleep(150); system("cls");
-	cout<<"Tu dado que salio es de..."<<endl;
+	cout<<"Tu dado que salio es de..."<<endl<<endl;
 	dado4(); Sleep(200); system("cls");
-	cout<<"Tu dado que salio es de..."<<endl;
+	cout<<"Tu dado que salio es de..."<<endl<<endl;
 	dado1(); Sleep(200); system("cls");
-	cout<<"Tu dado que salio es de..."<<endl;
+	cout<<"Tu dado que salio es de..."<<endl<<endl;
 	dado3(); Sleep(300); system("cls");
-	cout<<"Tu dado que salio es de..."<<endl;
+	cout<<"Tu dado que salio es de..."<<endl<<endl;
 	dado6(); Sleep(300); system("cls");
-	cout<<"Tu dado que salio es de..."<<endl;
+	cout<<"Tu dado que salio es de..."<<endl<<endl;
 	dado2(); Sleep(400); system("cls");
 	cout<<endl;
+}
+
+int mostrarPuntos(int wins1, int wins2){
+	int punto;
+	cout<<"---"<<wins1<<"-"<<wins2<<"---"<<endl<<endl;
+	Sleep(1500);
+	system("cls");
+	return punto;
 }
 
 int main() {
     SetConsoleOutputCP(CP_UTF8);
     srand(time(0));
     int jugada1,jugada2;
-    int wins1=0, wins2=0, rondas=1;
+    int wins1=0, wins2=0, rondas=1,punto;
 
     cout << "--- Juego de dados ---" << endl << endl;
-    cout<<"Por cada turno el jugador 1 y el jugador tiraran el dado..."<<endl;
+    cout<<"Por cada turno el jugador 1 y el jugador 2 tiraran el dado..."<<endl;
+    cout<<"Asegurate de presionar enter por cada ronda..."<<endl;
     cout<<"Presiona enter para comenzar el juego: ";
     cin.get();
     system("cls");
@@ -211,31 +218,34 @@ int main() {
 				break;
 			}
 		}
-        Sleep(2500);
+        Sleep(1000);
         rondas++;
 
         if(jugada1>jugada2) {
             cout << "El jugador 1 ha sumado 1 punto..."<<endl;
             wins1++;
-            Sleep(2500);
+            Sleep(2000);
             system("cls");
         } else if(jugada1<jugada2) {
             cout << "El jugador 2 ha sumado 1 punto..."<<endl;
-            Sleep(2500);
+            Sleep(2000);
             system("cls");
             wins2++;
         } else if(jugada1==jugada2) {
             cout<<"Empate~!!!"<<endl;
-            Sleep(2500);
+            Sleep(2000);
             system("cls");
         }
+        punto=mostrarPuntos(wins1, wins2);
 
     } while(wins1<3 && wins2<3);
 
     if(wins1>wins2) {
         cout<<"Felicidades, Jugador 1 gana~!!!"<<endl;
+        cin.get();
     } else {
         cout<<"Felicidades, Jugador 2 gana~!!!"<<endl;
+        cin.get();
     }
 
     return 0;
