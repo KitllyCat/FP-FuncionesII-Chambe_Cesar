@@ -12,12 +12,47 @@ void tragamonedas(){
 
 }
 
-void juego(){
+void juego(int& saldo, int apuesta){
 	
+	int num1=rand()%5+1,num2=rand()%5+1,num3=rand()%5+1;
 	
+	cout<<"---"<<num1<<"-"<<num2<<"-"<<num3<<"---"<<endl;
+	
+	if (num1 == num2 && num1 == num3){
+        cout<<endl<<"LOTERIA~!!!!!"<<endl<<endl;
+        cout<<"---3 NUMEROS IGUALES---"<<endl;
+        cout<<"Acaba de ganar por 10 veces su apuesta..."<<endl;
+        saldo=saldo-apuesta;
+        saldo=saldo+(apuesta * 10);
+    }else if (num1 == num2 || num2 == num3 || num3 == num1){
+        cout<<endl<<"FELICIDADES~!!!!!"<<endl<<endl;
+        cout<<"---2 NUMEROS IGUALES---"<<endl;
+        cout<<"Acaba de ganar por 2 veces su apuesta..."<<endl;
+        saldo=saldo-apuesta;
+        saldo=saldo+(apuesta * 2);
+    }else if (num1==1 && num2==2 && num3==3 || num1==2 && num2==3 && num3==4 || num1==3 && num2==4 && num3==5){
+        cout<<endl<<"MUCHAS FELICIDADES~!!!!!"<<endl<<endl;
+        cout<<"---ESCALERA POSITIVA---"<<endl;
+        cout<<"Acaba de ganar por 5 veces su apuesta..."<<endl;
+        saldo=saldo-apuesta;
+        saldo=saldo+(apuesta * 5);
+    }else if (num1==5 && num2==4 && num3==3 || num1==4 && num2==3 && num3==2 || num1==3 && num2==2 && num3==1){
+        cout<<endl<<"MUCHAS FELICIDADES~!!!!!"<<endl<<endl;
+        cout<<"---ESCALERA NEGATIVA---"<<endl;
+        cout<<"Acaba de ganar por 5 veces su apuesta..."<<endl;
+        saldo=saldo-apuesta;
+        saldo=saldo+(apuesta * 5);
+    }else{
+        cout<<endl<<"Intentelo de nuevo... no ganó nada :("<<endl<<endl;
+        saldo=saldo-apuesta;
+    }
+    cout<<"Su nuevo saldo es de "<<saldo<<" monedas."<<endl;
+	Sleep(2500);
 }
 
 int main(){
+	srand(time(0));
+	SetConsoleOutputCP(CP_UTF8);
 	int saldo=100;
 	int apuesta, eleccion;
 	int salir=0, apuestaSalir=0;
@@ -51,7 +86,7 @@ int main(){
 				}
 			}while(apuestaSalir!=1);
     		
-    		juego();
+    		juego(saldo, apuesta);
     		
 			break;
 		}
