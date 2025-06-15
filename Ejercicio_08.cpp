@@ -1,7 +1,3 @@
-/*Simulación de Tragamonedas Simple: Crea un programa que simule una máquina tragamonedas. El usuario inicia con 100 monedas y puede apostar
-entre 1 y 10 por turno. Se generan tres números aleatorios entre 1 y 5. Si los tres son iguales, gana 10 veces su apuesta. Si hay dos iguales,
-gana el doble. Si forman una escalera (por ejemplo como 2-3-4 o 4-3-2), gana 5 veces su apuesta. En cualquier otro caso, pierde lo apostado.
-El juego continúa hasta que el jugador se quede sin monedas o decida salir. Usa funciones y números aleatorios*/
 #include <iostream>
 #include <windows.h>
 #include <ctime>
@@ -9,15 +5,95 @@ El juego continúa hasta que el jugador se quede sin monedas o decida salir. Usa
 using namespace std;
 
 void tragamonedas(){
+	cout<<"ㅤㅤㅤㅤㅤㅤ⠀ㅤ⣀⣀⣀"<<endl;
+	cout<<"ㅤㅤㅤ⣀⣤⣴⣶⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣶⣤⣤⣀"<<endl;
+	cout<<"ㅤㅤㅤ⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿"<<endl;
+	cout<<"⠀ㅤㅤㅤ⢀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⡀"<<endl;
+	cout<<"⠀ㅤㅤㅤ⢸⣿⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⣿⡇⠀⣠⣄"<<endl;
+	cout<<"⠀ㅤㅤㅤ⢸⣿⠀⠀⢸⠉⡇⠀⢸⠉⡇⠀⢸⠉⡇⠀⠀⣿⡇⠀⠙⠋"<<endl;
+	cout<<"⠀ㅤㅤㅤ⢸⣿⠀⠀⢸⣿⡇⠀⢸⣿⡇⠀⢸⣿⡇⠀⠀⣿⡇⠀⣠⣄"<<endl;
+	cout<<"⠀ㅤㅤㅤ⢸⣿⠀⠀⢸⣀⡇⠀⢸⣀⡇⠀⢸⣀⡇⠀⠀⣿⡇⠀⣿⣿"<<endl;
+	cout<<"⠀ㅤㅤㅤ⢸⣿⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣿⡇⠀⣿⣿"<<endl;
+	cout<<"⠀ㅤㅤㅤ⠈⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠁⠀⠙⠋"<<endl; 
+	cout<<"ㅤㅤ⠀⢀⣴⡿⠛⠛⠛⢻⡿⠛⠛⠛⢻⣿⣿⡿⠋⠉⠙⢿⣿⣦⡀"<<endl;
+	cout<<"ㅤ⠀⠀⢰⣿⣿⣧⣤⣤⣤⣾⣧⣤⣤⣤⣾⣿⣿⣷⣄⣀⣠⣾⣿⣿⣿⡆"<<endl; 
+	cout<<"ㅤ⠀⠀⠈⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠁"<<endl;
+	cout<<"ㅤ⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"<<endl;
+	cout<<"ㅤ⠀⠀⠀⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉"<<endl<<endl;
+}
 
+void tragamonedas1(int num1){
+	cout<<"ㅤㅤㅤㅤㅤㅤ⠀ㅤ⣀⣀⣀"<<endl;
+	cout<<"ㅤㅤㅤ⣀⣤⣴⣶⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣶⣤⣤⣀"<<endl;
+	cout<<"ㅤㅤㅤ⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿"<<endl;
+	cout<<"⠀ㅤㅤㅤ⢀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⡀"<<endl;
+	cout<<"⠀ㅤㅤㅤ⢸⣿⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⣿⡇⠀⣠⣄"<<endl;
+	cout<<"⠀ㅤㅤㅤ⢸⣿⠀⠀⢸⠉⡇⠀⢸⠉⡇⠀⢸⠉⡇⠀⠀⣿⡇⠀⠙⠋"<<endl;
+	cout<<"⠀ㅤㅤㅤ⢸⣿⠀⠀⢸"<<num1<<"⡇⠀⢸⣿⡇⠀⢸⣿⡇⠀⠀⣿⡇⠀⣠⣄"<<endl;
+	cout<<"⠀ㅤㅤㅤ⢸⣿⠀⠀⢸⣀⡇⠀⢸⣀⡇⠀⢸⣀⡇⠀⠀⣿⡇⠀⣿⣿"<<endl;
+	cout<<"⠀ㅤㅤㅤ⢸⣿⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣿⡇⠀⣿⣿"<<endl;
+	cout<<"⠀ㅤㅤㅤ⠈⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠁⠀⠙⠋"<<endl; 
+	cout<<"ㅤㅤ⠀⢀⣴⡿⠛⠛⠛⢻⡿⠛⠛⠛⢻⣿⣿⡿⠋⠉⠙⢿⣿⣦⡀"<<endl;
+	cout<<"ㅤ⠀⠀⢰⣿⣿⣧⣤⣤⣤⣾⣧⣤⣤⣤⣾⣿⣿⣷⣄⣀⣠⣾⣿⣿⣿⡆"<<endl; 
+	cout<<"ㅤ⠀⠀⠈⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠁"<<endl;
+	cout<<"ㅤ⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"<<endl;
+	cout<<"ㅤ⠀⠀⠀⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉"<<endl;
+}
+
+void tragamonedas2(int num1,int num2){
+	cout<<"ㅤㅤㅤㅤㅤㅤ⠀ㅤ⣀⣀⣀"<<endl;
+	cout<<"ㅤㅤㅤ⣀⣤⣴⣶⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣶⣤⣤⣀"<<endl;
+	cout<<"ㅤㅤㅤ⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿"<<endl;
+	cout<<"⠀ㅤㅤㅤ⢀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⡀"<<endl;
+	cout<<"⠀ㅤㅤㅤ⢸⣿⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⣿⡇⠀⣠⣄"<<endl;
+	cout<<"⠀ㅤㅤㅤ⢸⣿⠀⠀⢸⠉⡇⠀⢸⠉⡇⠀⢸⠉⡇⠀⠀⣿⡇⠀⠙⠋"<<endl;
+	cout<<"⠀ㅤㅤㅤ⢸⣿⠀⠀⢸"<<num1<<"⡇⠀⢸"<<num2<<"⡇⠀⢸⣿⡇⠀⠀⣿⡇⠀⣠⣄"<<endl;
+	cout<<"⠀ㅤㅤㅤ⢸⣿⠀⠀⢸⣀⡇⠀⢸⣀⡇⠀⢸⣀⡇⠀⠀⣿⡇⠀⣿⣿"<<endl;
+	cout<<"⠀ㅤㅤㅤ⢸⣿⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣿⡇⠀⣿⣿"<<endl;
+	cout<<"⠀ㅤㅤㅤ⠈⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠁⠀⠙⠋"<<endl; 
+	cout<<"ㅤㅤ⠀⢀⣴⡿⠛⠛⠛⢻⡿⠛⠛⠛⢻⣿⣿⡿⠋⠉⠙⢿⣿⣦⡀"<<endl;
+	cout<<"ㅤ⠀⠀⢰⣿⣿⣧⣤⣤⣤⣾⣧⣤⣤⣤⣾⣿⣿⣷⣄⣀⣠⣾⣿⣿⣿⡆"<<endl; 
+	cout<<"ㅤ⠀⠀⠈⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠁"<<endl;
+	cout<<"ㅤ⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"<<endl;
+	cout<<"ㅤ⠀⠀⠀⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉"<<endl;
+}
+
+void tragamonedas3(int num1,int num2,int num3){
+	cout<<"ㅤㅤㅤㅤㅤㅤ⠀ㅤ⣀⣀⣀"<<endl;
+	cout<<"ㅤㅤㅤ⣀⣤⣴⣶⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣶⣤⣤⣀"<<endl;
+	cout<<"ㅤㅤㅤ⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿"<<endl;
+	cout<<"⠀ㅤㅤㅤ⢀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⡀"<<endl;
+	cout<<"⠀ㅤㅤㅤ⢸⣿⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⣿⡇⠀⣠⣄"<<endl;
+	cout<<"⠀ㅤㅤㅤ⢸⣿⠀⠀⢸⠉⡇⠀⢸⠉⡇⠀⢸⠉⡇⠀⠀⣿⡇⠀⠙⠋"<<endl;
+	cout<<"⠀ㅤㅤㅤ⢸⣿⠀⠀⢸"<<num1<<"⡇⠀⢸"<<num2<<"⡇⠀⢸"<<num3<<"⡇⠀⠀⣿⡇⠀⣠⣄"<<endl;
+	cout<<"⠀ㅤㅤㅤ⢸⣿⠀⠀⢸⣀⡇⠀⢸⣀⡇⠀⢸⣀⡇⠀⠀⣿⡇⠀⣿⣿"<<endl;
+	cout<<"⠀ㅤㅤㅤ⢸⣿⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣿⡇⠀⣿⣿"<<endl;
+	cout<<"⠀ㅤㅤㅤ⠈⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠁⠀⠙⠋"<<endl; 
+	cout<<"ㅤㅤ⠀⢀⣴⡿⠛⠛⠛⢻⡿⠛⠛⠛⢻⣿⣿⡿⠋⠉⠙⢿⣿⣦⡀"<<endl;
+	cout<<"ㅤ⠀⠀⢰⣿⣿⣧⣤⣤⣤⣾⣧⣤⣤⣤⣾⣿⣿⣷⣄⣀⣠⣾⣿⣿⣿⡆"<<endl; 
+	cout<<"ㅤ⠀⠀⠈⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠁"<<endl;
+	cout<<"ㅤ⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"<<endl;
+	cout<<"ㅤ⠀⠀⠀⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉"<<endl;
 }
 
 void juego(int& saldo, int apuesta){
 	
 	int num1=rand()%5+1,num2=rand()%5+1,num3=rand()%5+1;
 	
-	cout<<"---"<<num1<<"-"<<num2<<"-"<<num3<<"---"<<endl;
-	
+	tragamonedas();
+	cout<<"Presione enter para comenzar:";
+	cin.ignore();
+	cin.get();
+	system("cls");
+	tragamonedas1(num1);
+	Sleep(2000);
+	system("cls");
+	tragamonedas2(num1,num2);
+	Sleep(2000);
+	system("cls");
+	tragamonedas3(num1,num2,num3);
+	Sleep(2000);
+		
 	if (num1 == num2 && num1 == num3){
         cout<<endl<<"LOTERIA~!!!!!"<<endl<<endl;
         cout<<"---3 NUMEROS IGUALES---"<<endl;
@@ -43,11 +119,15 @@ void juego(int& saldo, int apuesta){
         saldo=saldo-apuesta;
         saldo=saldo+(apuesta * 5);
     }else{
-        cout<<endl<<"Intentelo de nuevo... no ganó nada :("<<endl<<endl;
+        cout<<endl<<"Intentelo de nuevo... no ganó nada :("<<endl;
         saldo=saldo-apuesta;
     }
-    cout<<"Su nuevo saldo es de "<<saldo<<" monedas."<<endl;
-	Sleep(2500);
+    cout<<endl<<"Su nueva cantidad de monedas es de "<<saldo<<"."<<endl;
+    Sleep(1000);
+	cout<<"Presione enter para continuar...";
+	cin.ignore();
+	cin.get();
+	system("cls");
 }
 
 int main(){
@@ -65,7 +145,7 @@ int main(){
     cout<<"Si te salen 3 numeros iguales, gana por 10 lo apostado~!!!"<<endl;
     cout<<"Si te salen 2 numeros iguales, gana por 2 lo apostado~!!!"<<endl;
     cout<<"Se te sale alguna escalera de numeros, gana por 5 lo apostado~!!!"<<endl;
-    cout<<"Escoja la opcion que desee:"<<endl;
+    cout<<"Escoja la opcion que desee:"<<endl<<endl;
     cout<<"1) Comenzar el juego..."<<endl;
 	cout<<"2) Mostrar el saldo disponible..."<<endl;
     cout<<"3) Salir del juego..."<<endl<<endl;
@@ -73,27 +153,38 @@ int main(){
 
     switch(eleccion){
     	case 1:{
+    		if (saldo <= 0){
+        	cout<<endl<<"Sin monedas para continuar, se saldrá del juego..."<<endl;
+        	salir=1;
+        	break;
+        	}
+        	
     		do{
     			cout<<endl<<"Ingrese la cantidad que desea apostar: ";
     			cin>>apuesta;
     		
     			if(apuesta>saldo){
-    				cout<<endl<<"Saldo insuficiente para apostar!!! Intente de nuevo..."<<endl;
-				}else if(apuesta<=0){
-    				cout<<endl<<"No puedes apostar esos valores!!!"<<endl;
+    			cout<<endl<<"Monedas insuficientes para apostar!!! Intente de nuevo..."<<endl;
+				}else if(apuesta<0){
+    			cout<<endl<<"No puedes apostar esos valores!!!"<<endl;
     			}else{
-					apuestaSalir=1;
+    			cout<<endl<<"Sin monedas para continuar, se saldra del juego..."<<endl;
+    			apuestaSalir=1;
 				}
 			}while(apuestaSalir!=1);
-    		
+    		system("cls");
     		juego(saldo, apuesta);
-    		
 			break;
 		}
     	case 2:{
-    		cout<<endl<<"Tu saldo es de "<<saldo<<" monedas."<<endl;
-    		Sleep(1500);
-    		system("cls");
+			if (saldo <= 0){
+ 				cout<<endl<<"Te has quedado sin monedas. El juego ha terminado..."<<endl;
+  				salir=1;
+			}else{
+				cout<<endl<<"La cantidad de monedas que tienes es de "<<saldo<<"."<<endl;
+    			Sleep(1500);
+    			system("cls");	
+			}
 			break;
 		}
 		case 3:{
