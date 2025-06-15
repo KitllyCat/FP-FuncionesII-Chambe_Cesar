@@ -162,7 +162,14 @@ int main(){
     		do{
     			cout<<endl<<"Ingrese la cantidad que desea apostar: ";
     			cin>>apuesta;
-    		
+    			
+    			if(apuesta==0){
+    				cout<<endl<<"No estas apostando nada..."<<endl;
+    				Sleep(1500);
+    				apuestaSalir=1;
+					system("cls");
+				}
+				
     			if(apuesta>saldo){
     			cout<<endl<<"Monedas insuficientes para apostar!!! Intente de nuevo..."<<endl;
 				}else if(apuesta<0){
@@ -172,8 +179,13 @@ int main(){
     			apuestaSalir=1;
 				}
 			}while(apuestaSalir!=1);
-    		system("cls");
-    		juego(saldo, apuesta);
+			
+			if(apuestaSalir==1){
+				system("cls");
+			}else{
+				system("cls");
+    			juego(saldo, apuesta);
+			}
 			break;
 		}
     	case 2:{
