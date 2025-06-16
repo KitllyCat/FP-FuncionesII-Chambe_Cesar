@@ -60,6 +60,5 @@ int main(){
         cout << "Primer resultado: "<<resulReal<<" + "<<resulImag<<"i"<<endl;
         cout << "Segundo resultado: "<<resulReal<<" - "<<resulImag<<"i"<<endl;
     }
-
     return 0;
 }
