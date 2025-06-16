@@ -10,6 +10,5 @@ int main(){
 	cout<<"Ingrese el radio del circulo: ";
 	cin>>radio;
 	cout<<"El area del circulo es de "<<(pow(radio, 2)*(M_PI))<<"."<<endl;
-		
 	return 0;
 }
