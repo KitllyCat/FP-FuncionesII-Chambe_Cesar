@@ -19,6 +19,5 @@ int main(){
 		int numRand = rand()% rang + 1;
 		cout<<"["<<numRand<<"]";
 	}
-	
 	return 0;
 }
