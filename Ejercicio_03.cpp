@@ -5,7 +5,6 @@ using namespace std;
 
 int main(){
 	SetConsoleOutputCP(CP_UTF8);
-	
 	float cateto1, cateto2,hipotenusa;
 	cout<<"---Calculo de la hipotenusa---"<<endl<<endl;
 	cout<<"Ingrese el cateto 1: ";
